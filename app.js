@@ -8,7 +8,7 @@ Search = document.querySelector('.search');
 
 function show() {
 
-    fetch(`https://nepalstockapi.herokuapp.com/companyprice.php?symbol=${Search.value} height:200px; width:200px;`)
+    fetch(`https://nepalstockapi.herokuapp.com/companyprice.php?symbol=${Search.value}`)
         .then(function(response) {
             return response.json();
         })
@@ -18,7 +18,7 @@ function show() {
                 output +=
                     `
                     <div class="row">
-                    <a href="detail.html">
+                 
                     <div class= "col-md-3">
                     <div class="card">
           
@@ -30,39 +30,23 @@ function show() {
                     <li style="text-decoration:none; list-style:none;">difference:${api.amount}</li>
                     <hr>
                     <li style="text-decoration:none; list-style:none;">tradecompany:${api.tradecompany}</li>
-                    </a>
-
+              
                     </div>
        
         `;
                 document.querySelector('.here').innerHTML = output;
             });
 
-
+        
         })
-
-
-    if (Search.value === "") {
-        document.querySelector('.message').innerHTML = "write your company name";
-        document.querySelector('.message').style.color = "red";
-
-    } else {
-        return show();
     }
 
-}
 
+//     if (Search.value === "") {
+//         document.querySelector('.message').innerHTML = "write your company name";
+//         document.querySelector('.message').style.color = "red";
 
+//     } 
+    
 
-
-
-// document.querySelector('.search').addEventListener('keyup', () => {
-
-//     const userText = e.target;
-//     if (userText !== "") {
-//         show(userText)
-
-//     }
-
-
-// });
+// }
